@@ -1,0 +1,57 @@
+/* styles.css — Social UX for Alice, Hacker, Bob */
+:root{ --bg:#0f1724; --panel:#ffffff; --muted:#6b7280; --accent:#7c3aed; --glass:rgba(15,23,36,0.6); --alice:#60a5fa; --bob:#34d399; --hacker:#fb923c }
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;color:#0b1220;background:linear-gradient(180deg,#f8fafc,#eef2ff);}
+.app{max-width:1200px;margin:22px auto;padding:18px}
+.topbar{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-radius:12px;background:linear-gradient(90deg,#ffffff,#f1f5f9);box-shadow:0 6px 18px rgba(16,24,40,0.06)}
+.topbar .brand{font-weight:700;color:#0b1220}
+.controls{display:flex;align-items:center;gap:12px}
+.algo-select{padding:8px 10px;border-radius:10px;border:1px solid #e2e8f0;background:white}
+.algo-label{font-size:12px;color:var(--muted);margin-right:8px}
+
+.stage{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-top:18px}
+@media (max-width:980px){.stage{grid-template-columns:1fr;}}
+.phone{border-radius:18px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 8px 30px rgba(2,6,23,0.06)}
+.phone-header{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;background:linear-gradient(90deg,rgba(255,255,255,0.9),rgba(255,255,255,0.7));border-bottom:1px solid #eef2f6}
+.phone .persona{font-weight:700}
+.phone .status{font-size:12px;color:var(--muted)}
+.feed{padding:14px;flex:1;display:flex;flex-direction:column;gap:10px;overflow:auto;background:linear-gradient(180deg,#fafafa,#fff);min-height:320px}
+.hacker-feed{background:linear-gradient(180deg,#0b1220,#071029);color:#e6eef8}
+
+.bubble{max-width:78%;padding:10px 12px;border-radius:14px;font-size:14px;line-height:1.3}
+.bubble.me{align-self:flex-end;background:linear-gradient(90deg,#eef2ff,#e0f2ff);border:1px solid rgba(14,165,233,0.08)}
+.bubble.them{align-self:flex-start;background:linear-gradient(90deg,#f0fff4,#e6ffef);border:1px solid rgba(34,197,94,0.06)}
+.bubble.hacker{background:linear-gradient(90deg,#111827,#0b1220);border:1px solid rgba(255,255,255,0.04);color:#e6eef8}
+.meta{font-size:12px;color:var(--muted);margin-top:6px}
+.composer{padding:12px;border-top:1px solid #eef2f6;background:linear-gradient(90deg,#fff,#f8fafc)}
+.composer textarea{width:100%;min-height:56px;border-radius:10px;border:1px solid #e6eef8;padding:10px;font-size:14px}
+.composer-row{display:flex;gap:8px;margin-top:8px}
+.key-input{flex:1;padding:10px;border-radius:10px;border:1px dashed #e6eef8;background:linear-gradient(90deg,#fff,#fbfdff)}
+.send-btn{padding:10px 14px;border-radius:10px;border:0;background:var(--accent);color:white;font-weight:700}
+.send-btn.secondary{background:#ffffff;border:1px solid #e6eef8;color:#0b1220}
+.hacker-phone{color:#e6eef8}
+.hacker-phone .phone-header{background:linear-gradient(90deg,#0b1220,#071029)}
+.hacker-controls{padding:10px 14px;border-top:1px solid rgba(255,255,255,0.02);display:flex;gap:8px;flex-wrap:wrap;background:linear-gradient(90deg,#071029,#020617)}
+.hacker-controls label{font-size:13px;color:#cbd5e1}
+.algo-panel{padding:12px;border-top:1px solid #eef2f6;background:linear-gradient(90deg,#fff,#fbfdff)}
+.hacker-phone .algo-panel{background:linear-gradient(90deg,#071029,#020617);border-top:1px solid rgba(255,255,255,0.02)}
+.key-box{font-family:ui-monospace,monospace;padding:8px;border-radius:8px;background:linear-gradient(90deg,#f8fafc,#ffffff);border:1px solid #eef2f6}
+.hacker .key-box{background:linear-gradient(90deg,#071029,#020617);border:1px solid rgba(255,255,255,0.03);color:#cbd5e1}
+
+.footer{margin-top:12px;padding:10px 12px;color:var(--muted);font-size:13px}
+
+/* micro animations */
+.bubble{transition:transform 200ms ease,opacity 200ms ease}
+.bubble.appear{transform:translateY(6px);opacity:0}
+.bubble.show{transform:translateY(0);opacity:1}
+
+/* algorithm specific helpers */
+.panel-row{display:flex;gap:8px;align-items:center}
+.small-muted{font-size:12px;color:#6b7280}
+
+/* styling differences for Alice/Bob light modes */
+.alice-phone .bubble.me{background:linear-gradient(90deg,#dbf4ff,#cfeeff)}
+.bob-phone .bubble.me{background:linear-gradient(90deg,#e6fff3,#cffde6)}
+
+/* responsive adjustments */
+@media (max-width:600px){.key-input{font-size:12px}.algo-select{font-size:13px}}

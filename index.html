@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Crypto Social — Alice & Bob Live Demo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">Crypto Social — Live Demo</div>
+      <div class="controls">
+        <label class="algo-label">Algorithm</label>
+        <select id="algoSelect" class="algo-select">
+          <option value="plain">Plaintext</option>
+          <option value="caesar">Caesar Cipher</option>
+          <option value="aes">AES (Symmetric)</option>
+          <option value="rsa">RSA (Asymmetric)</option>
+          <option value="dh">Diffie–Hellman (Key Exchange)</option>
+        </select>
+      </div>
+    </header>
+
+    <main class="stage">
+      <!-- Alice pane -->
+      <section class="phone alice-phone light-mode">
+        <div class="phone-header">
+          <div class="persona">ALICE</div>
+          <div class="status">Online</div>
+        </div>
+        <div class="feed" id="aliceFeed"></div>
+
+        <div class="composer">
+          <textarea id="aliceMsg" placeholder="Write a message..."></textarea>
+          <div class="composer-row">
+            <!-- removed global key input; algorithm panels show required inputs only -->
+            <button id="aliceSend" class="send-btn">Send</button>
+          </div>
+        </div>
+
+        <div class="algo-panel" id="aliceAlgoPanel"></div>
+      </section>
+
+      <!-- Hacker pane -->
+      <section class="phone hacker-phone dark-mode">
+        <div class="phone-header">
+          <div class="persona">HACKER</div>
+          <div class="status">Sniffing</div>
+        </div>
+        <div class="feed hacker-feed" id="hackerFeed"></div>
+
+        <div class="hacker-controls">
+          <label><input type="checkbox" id="hackIntercept" checked> Intercept</label>
+          <label><input type="checkbox" id="hackHasKey"> Has key</label>
+          <label><input type="checkbox" id="hackMitm"> MITM (replace pubkey)</label>
+        </div>
+
+        <!-- hacker modify UI injected by JS if not present -->
+        <div class="algo-panel" id="hackerAlgoPanel"></div>
+      </section>
+
+      <!-- Bob pane -->
+      <section class="phone bob-phone light-mode">
+        <div class="phone-header">
+          <div class="persona">BOB</div>
+          <div class="status">Online</div>
+        </div>
+        <div class="feed" id="bobFeed"></div>
+
+        <div class="composer">
+          <textarea id="bobMsg" placeholder="Reply to Alice..."></textarea>
+          <div class="composer-row">
+            <!-- removed global key input from composer -->
+            <button id="bobSend" class="send-btn secondary">Reply</button>
+          </div>
+        </div>
+
+        <div class="algo-panel" id="bobAlgoPanel"></div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="legend">Demo: select an algorithm to show its UI. Hacker is dark-mode; Alice & Bob are light-mode. Keys/shift/public keys appear only in the algorithm panels.</div>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
